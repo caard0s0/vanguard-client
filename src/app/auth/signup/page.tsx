@@ -1,42 +1,42 @@
-"use client";
+'use client'
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-    full_name: "",
-    email: "",
-  });
+    username: '',
+    password: '',
+    full_name: '',
+    email: '',
+  })
 
-  const router = useRouter();
+  const router = useRouter()
 
   const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
 
   const handleSubmit = async (e: any) => {
-    e.preventDefault();
+    e.preventDefault()
 
     try {
-      const res = await fetch("http://localhost:8080/users", {
-        method: "POST",
+      const res = await fetch('http://localhost:8080/users', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-      });
+      })
 
       if (res.ok) {
-        router.push("http://localhost:3000/account");
+        router.push('http://localhost:3000/account')
       }
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-  };
+  }
 
   return (
     <div>
@@ -81,5 +81,5 @@ export default function SignUp() {
         <button type="submit">Submit</button>
       </form>
     </div>
-  );
+  )
 }

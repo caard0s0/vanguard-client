@@ -33,7 +33,7 @@ A Financial Software specialized in the intermediation of money between savers a
 
 <h3>Built With</h3>
 
-[![Tech Tools](https://skillicons.dev/icons?i=html,css,typescript,react,nextjs)](https://skillicons.dev)
+[![Tech Tools](https://skillicons.dev/icons?i=html,tailwind,ts,react,nextjs)](https://skillicons.dev)
 
 <!-- Table of Contents -->
 <details>
