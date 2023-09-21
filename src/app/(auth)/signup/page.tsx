@@ -1,38 +1,31 @@
 'use client'
 
+import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 export default function SignUp() {
-  const [formData, setFormData] = useState({
+  const router = useRouter()
+  const [user, setUser] = useState({
     username: '',
     password: '',
     full_name: '',
     email: '',
   })
 
-  const router = useRouter()
-
-  const handleChange = (e: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
+    setUser({ ...user, [name]: value })
   }
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     try {
-      const res = await fetch('http://localhost:8080/users', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
+      const { data } = await axios.post('http://localhost:8080/users', user)
 
-      if (res.ok) {
-        router.push('http://localhost:3000/account')
-      }
+      router.push('http://localhost:3000/signin')
+      return data
     } catch (err) {
       console.log(err)
     }
@@ -46,7 +39,7 @@ export default function SignUp() {
           <input
             type="text"
             name="username"
-            value={formData.username}
+            value={user.username}
             onChange={handleChange}
           />
         </div>
@@ -55,16 +48,16 @@ export default function SignUp() {
           <input
             type="password"
             name="password"
-            value={formData.password}
+            value={user.password}
             onChange={handleChange}
           />
         </div>
         <div>
-          <label>Enter your fullname</label>
+          <label>Enter your full name</label>
           <input
             type="name"
             name="full_name"
-            value={formData.full_name}
+            value={user.full_name}
             onChange={handleChange}
           />
         </div>
@@ -73,7 +66,7 @@ export default function SignUp() {
           <input
             type="email"
             name="email"
-            value={formData.email}
+            value={user.email}
             onChange={handleChange}
           />
         </div>
