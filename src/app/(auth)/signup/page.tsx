@@ -1,8 +1,8 @@
 'use client'
 
-import axios from 'axios'
-import { useRouter } from 'next/navigation'
 import { ChangeEvent, FormEvent, useState } from 'react'
+import { createUser } from '@/app/api/routes'
+import { useRouter } from 'next/navigation'
 
 export default function SignUp() {
   const router = useRouter()
@@ -22,10 +22,9 @@ export default function SignUp() {
     e.preventDefault()
 
     try {
-      const { data } = await axios.post('http://localhost:8080/users', user)
+      await createUser(user)
 
       router.push('http://localhost:3000/signin')
-      return data
     } catch (err) {
       console.log(err)
     }

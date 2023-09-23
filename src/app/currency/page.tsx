@@ -1,12 +1,10 @@
 'use client'
-
-import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { ChangeEvent, FormEvent, useState } from 'react'
+import { createAccount } from '../api/routes'
 
 export default function Currency() {
   const router = useRouter()
-  const token = window.localStorage.getItem('token')
   const [currency, setCurrency] = useState({
     currency: '',
   })
@@ -20,18 +18,9 @@ export default function Currency() {
     e.preventDefault()
 
     try {
-      const { data } = await axios.post(
-        'http://localhost:8080/accounts',
-        currency,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      )
+      await createAccount(currency)
 
       router.push('http://localhost:3000/account')
-      return data
     } catch (err) {
       console.log(err)
     }

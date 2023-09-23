@@ -1,8 +1,8 @@
 'use client'
 
-import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { ChangeEvent, FormEvent, useState } from 'react'
+import { loginUser } from '@/app/api/routes'
 
 export default function SignUp() {
   const router = useRouter()
@@ -20,14 +20,7 @@ export default function SignUp() {
     e.preventDefault()
 
     try {
-      const { data } = await axios.post(
-        'http://localhost:8080/users/login',
-        user,
-      )
-
-      if (typeof window !== 'undefined') {
-        window.localStorage.setItem('token', data.access_token)
-      }
+      await loginUser(user)
 
       router.push('http://localhost:3000/currency')
     } catch (err) {
