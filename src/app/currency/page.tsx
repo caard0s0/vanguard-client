@@ -3,9 +3,13 @@ import { useRouter } from 'next/navigation'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { createAccount } from '../api/routes'
 
+export interface Currency {
+  currency: string
+}
+
 export default function Currency() {
   const router = useRouter()
-  const [currency, setCurrency] = useState({
+  const [currency, setCurrency] = useState<Currency>({
     currency: '',
   })
 
@@ -18,9 +22,10 @@ export default function Currency() {
     e.preventDefault()
 
     try {
-      await createAccount(currency)
-
-      router.push('http://localhost:3000/account')
+      const accountData = await createAccount(currency)
+      if (accountData) {
+        router.push('http://localhost:3000/accounts')
+      }
     } catch (err) {
       console.log(err)
     }

@@ -4,9 +4,16 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { createUser } from '@/app/api/routes'
 import { useRouter } from 'next/navigation'
 
+export interface UserSignUp {
+  username: string
+  password: string
+  full_name: string
+  email: string
+}
+
 export default function SignUp() {
   const router = useRouter()
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<UserSignUp>({
     username: '',
     password: '',
     full_name: '',

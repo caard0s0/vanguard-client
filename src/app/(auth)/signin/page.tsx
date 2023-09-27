@@ -2,11 +2,16 @@
 
 import { useRouter } from 'next/navigation'
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { loginUser } from '@/app/api/routes'
+import { listAccounts, loginUser } from '@/app/api/routes'
 
-export default function SignUp() {
+export interface UserSignIn {
+  username: string
+  password: string
+}
+
+export default function SignIn() {
   const router = useRouter()
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<UserSignIn>({
     username: '',
     password: '',
   })
@@ -21,8 +26,12 @@ export default function SignUp() {
 
     try {
       await loginUser(user)
-
-      router.push('http://localhost:3000/currency')
+      const accountData = await listAccounts()
+      if (accountData) {
+        router.push('http://localhost:3000/accounts')
+      } else {
+        router.push('http://localhost:3000/currency')
+      }
     } catch (err) {
       console.log(err)
     }

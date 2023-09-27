@@ -1,13 +1,16 @@
 import axios from 'axios'
 import { userCookie } from '../utils/userCookie'
+import { UserSignIn } from '../(auth)/signin/page'
+import { UserSignUp } from '../(auth)/signup/page'
+import { Currency } from '../currency/page'
 
-export const createUser = async (user: any) => {
+export const createUser = async (user: UserSignUp) => {
   const { data } = await axios.post('http://localhost:8080/users', user)
 
   return data
 }
 
-export const loginUser = async (user: any) => {
+export const loginUser = async (user: UserSignIn) => {
   const { data } = await axios.post('http://localhost:8080/users/login', user, {
     withCredentials: true,
   })
@@ -15,10 +18,10 @@ export const loginUser = async (user: any) => {
   return data
 }
 
-export const createAccount = async (currency: any) => {
+export const createAccount = async (currency: Currency) => {
   const accessToken = await userCookie()
 
-  const { data } = await axios.post(
+  const response = await axios.post(
     'http://localhost:8080/accounts',
     currency,
     {
@@ -28,19 +31,24 @@ export const createAccount = async (currency: any) => {
     },
   )
 
-  const id = data.id
-  return id
+  if (response.status === 200) return response.data
+
+  return undefined
 }
 
-// export const getAccount = async () => {
-//   const token = await getCookies()
-//   const id = await createAccount()
+export const listAccounts = async () => {
+  const accessToken = await userCookie()
 
-//   const { data } = await axios.get(`http://localhost:8080/accounts/${id}`, {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//     withCredentials: true,
-//   })
-//   return data
-// }
+  const { data } = await axios.get(
+    'http://localhost:8080/accounts?page_id=1&page_size=5',
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    },
+  )
+  if (data.length === 0) {
+    return undefined
+  }
+  return data
+}
