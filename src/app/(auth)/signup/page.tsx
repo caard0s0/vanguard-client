@@ -31,7 +31,7 @@ export default function SignUp() {
     try {
       await createUser(user)
 
-      router.push('http://localhost:3000/signin')
+      router.push('/signin')
     } catch (err) {
       console.log(err)
     }

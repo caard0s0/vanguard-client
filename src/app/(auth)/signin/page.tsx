@@ -28,9 +28,9 @@ export default function SignIn() {
       await loginUser(user)
       const accountData = await listAccounts()
       if (accountData) {
-        router.push('http://localhost:3000/accounts')
+        router.push('/accounts')
       } else {
-        router.push('http://localhost:3000/currency')
+        router.push('/currency')
       }
     } catch (err) {
       console.log(err)

@@ -24,7 +24,7 @@ export default function Currency() {
     try {
       const accountData = await createAccount(currency)
       if (accountData) {
-        router.push('http://localhost:3000/accounts')
+        router.push('/accounts')
       }
     } catch (err) {
       console.log(err)
