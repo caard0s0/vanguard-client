@@ -1,26 +1,14 @@
 <div id="top"></div>
 
-<!-- CI Badge -->
-<a href="https://github.com/caard0s0/united-atomic-bank/actions/workflows/ci.yml">
-    <img src="https://github.com/caard0s0/united-atomic-bank/actions/workflows/ci.yml/badge.svg?branch=main" alt="Build Status">
-</a>
-
-<!-- Build & Publish Docker Badge -->
-<a href="https://github.com/caard0s0/united-atomic-bank/actions/workflows/deploy.yml">
-    <img src="https://github.com/caard0s0/united-atomic-bank/actions/workflows/deploy.yml/badge.svg?branch=main" alt="Build Status">
-</a>
-
-&nbsp;
-
 <!-- About the Project -->
 <div align="center">
-    <h2>United Atomic - API Server</h2>
-    <p>A complete RESTful API for Financial Institutions, developed with <a href="https://go.dev/">Go</a>.</p>
-    <a href="https://github.com/caard0s0/united-atomic-bank/issues">Report Bugs</a>
+    <h2>United Atomic - Web Version</h2>
+    <p>A complete RESTful API for Financial Institutions, developed with <a href="https://react.dev/">React</a> and <a href="https://nextjs.org/">Next.js</a>.</p>
+    <a href="https://github.com/caard0s0/united-atomic-bank-client/issues">Report Bugs</a>
     &nbsp;&bull;&nbsp;
-    <a href="https://github.com/caard0s0/united-atomic-bank/actions">Actions</a>
+    <a href="https://github.com/caard0s0/united-atomic-bank-client/actions">Actions</a>
     &nbsp;&bull;&nbsp;
-    <a href="https://github.com/caard0s0/united-atomic-bank/pulls">Pull Requests</a>
+    <a href="https://github.com/caard0s0/united-atomic-bank-client/pulls">Pull Requests</a>
 </div>
 
 &nbsp;
@@ -44,7 +32,6 @@ A Financial Software specialized in the intermediation of money between savers a
             <ul>
                 <li><a href="#installation">Installation</a></li>
                 <li><a href="#usage">Usage</a></li>
-                <li><a href="#tests">Tests</a></li>
             </ul>
         </li>
         <li><a href="#license">License</a></li>
@@ -57,7 +44,7 @@ A Financial Software specialized in the intermediation of money between savers a
 <!-- Getting Started -->
 <h2 id="getting-started">Getting Started</h2>
 
-<p>To get started, You need to have <strong>Go 1.21+</strong> installed on your machine, for more information visit <a href="https://go.dev/dl/">Go Downloads</a>. You also need to have <strong>Docker Desktop</strong> installed, for more information visit <a href="https://docs.docker.com/engine/install/">Docker Engine Install</a>.</p>
+<p>To get started, You need to have <strong>Node.js 18+</strong> installed on your machine, for more information visit <a href="https://nodejs.org/en/download">Node.js Downloads</a>.
 
 <p><strong>OBS:</strong> This guide is designed to run this project locally (Local Development), on Linux-based systems.</p>
 
@@ -67,23 +54,19 @@ A Financial Software specialized in the intermediation of money between savers a
 1. Clone the repository.
 
     ```bash
-    git clone https://github.com/caard0s0/united-atomic-bank.git
+    git clone https://github.com/caard0s0/united-atomic-bank-client.git
     ```
 
 2. Install <strong>Golang-Migrate</strong> as CLI. for more information visit <a href="https://github.com/golang-migrate/migrate/tree/master/cmd/migrate">Golang CLI Documentation</a>.
 
-3. Create an `app.env` file with environment variables.
+3. Create an `.env.local` file with environment variables.
 
     <strong>WARNING:</strong> The values ​​below are for testing purposes only, please change them in the future.
 
     ```bash
     cat > app.env << EOF
-    DB_DRIVER=postgres
-    DB_SOURCE=postgresql://root:secret@localhost:5432/bank?sslmode=disable
-    HTTP_SERVER_ADDRESS=0.0.0.0:8080
-
-    TOKEN_SYMMETRIC_KEY=12345678901234567890123456789012
-    ACCESS_TOKEN_DURATION=15m
+    SERVER_PORT=8080
+    HTTP_SERVER_ADDRESS=http://localhost:$SERVER_PORT
     EOF
     ```
 
@@ -114,17 +97,6 @@ A Financial Software specialized in the intermediation of money between savers a
 
     ```cmd
     docker compose up -d
-    ```
-
-<!-- Tests -->
-<h2 id="tests">Tests</h2>
-
-<p>To be able to run all the tests, follow the command below.</p>
-
-1. Run all the <strong>Tests</strong>.
-
-    ```cmd
-    go test -v -cover ./...
     ```
 
 <br>
