@@ -39,10 +39,10 @@ export default function Home() {
               <nav onClick={() => setToggleMenu(false)}>
                 <ul className="mt-20 flex cursor-pointer flex-col items-center gap-10 text-xl font-semibold text-zinc-950">
                   <li>
-                    <a href="">About</a>
+                    <a>About</a>
                   </li>
                   <li>
-                    <a href="">Support</a>
+                    <a>Support</a>
                   </li>
                   <li>
                     <a href="/signin" className="flex items-center gap-2">

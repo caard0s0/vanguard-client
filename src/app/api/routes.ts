@@ -2,6 +2,7 @@ import axios from 'axios'
 import { userCookie } from '../utils/userCookie'
 import { UserSignIn } from '../(auth)/signin/page'
 import { UserSignUp } from '../(auth)/signup/page'
+import { UserTransfer } from '../transfer/page'
 import { Currency } from '../currency/page'
 
 export const createUser = async (user: UserSignUp) => {
@@ -57,5 +58,21 @@ export const listAccounts = async () => {
   if (data.length === 0) {
     return undefined
   }
+  return data
+}
+
+export const createTransfer = async (transfer: UserTransfer) => {
+  const accessToken = await userCookie()
+
+  const { data } = await axios.post(
+    `${process.env.HTTP_SERVER_ADDRESS}/transfers`,
+    transfer,
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    },
+  )
+
   return data
 }
