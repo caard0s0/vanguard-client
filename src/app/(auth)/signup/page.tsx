@@ -1,7 +1,7 @@
 'use client'
 
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { createUser } from '@/app/api/routes'
+import { createUser } from '@/api/routes'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 

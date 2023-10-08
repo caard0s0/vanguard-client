@@ -1,6 +1,6 @@
 'use client'
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { createTransfer } from '@/app/api/routes'
+import { createTransfer } from '@/api/routes'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 

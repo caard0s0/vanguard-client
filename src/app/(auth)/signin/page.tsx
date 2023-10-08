@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { listAccounts, loginUser } from '@/app/api/routes'
+import { listAccounts, loginUser } from '@/api/routes'
 import Image from 'next/image'
 
 export interface UserSignIn {

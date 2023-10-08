@@ -1,9 +1,9 @@
 import axios from 'axios'
-import { userCookie } from '../utils/userCookie'
-import { UserSignIn } from '../(auth)/signin/page'
-import { UserSignUp } from '../(auth)/signup/page'
-import { UserTransfer } from '../transfer/page'
-import { Currency } from '../currency/page'
+import { userCookie } from '@/utils/userCookie'
+import { UserSignIn } from '@/app/(auth)/signin/page'
+import { UserSignUp } from '@/app/(auth)/signup/page'
+import { UserTransfer } from '@/app/transfer/page'
+import { Currency } from '@/app/currency/page'
 
 export const createUser = async (user: UserSignUp) => {
   const { data } = await axios.post(

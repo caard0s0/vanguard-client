@@ -1,4 +1,4 @@
-import { listAccounts } from '../api/routes'
+import { listAccounts } from '@/api/routes'
 import { User2, Eye, Dot } from 'lucide-react'
 
 export default async function Accounts() {

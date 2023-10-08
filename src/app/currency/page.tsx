@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { ChangeEvent, FormEvent, useState } from 'react'
-import { createAccount } from '../api/routes'
+import { createAccount } from '@/api/routes'
 import Image from 'next/image'
 
 export interface Currency {
