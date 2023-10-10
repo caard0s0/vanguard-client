@@ -1,14 +1,14 @@
 import { Metadata } from 'next'
-import { SignIn } from './SignIn'
+import { CreateAccount } from './CreateAccount'
 
 export const metadata: Metadata = {
-  title: 'Sign In',
+  title: 'Create Account',
 }
 
 export default function Page() {
   return (
     <>
-      <SignIn />
+      <CreateAccount />
     </>
   )
 }

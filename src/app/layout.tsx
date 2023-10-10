@@ -3,7 +3,10 @@ import type { Metadata } from 'next'
 import './global.css'
 
 export const metadata: Metadata = {
-  title: 'UAB',
+  title: {
+    template: '%s | UAB',
+    default: 'Home | UAB',
+  },
   description: `
     United Atomic Bank provides accessible, 
     strategic and highly individualized services, 
@@ -38,7 +41,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head />
       <body>{children}</body>
     </html>
   )

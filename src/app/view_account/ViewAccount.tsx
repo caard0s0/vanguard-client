@@ -1,9 +1,14 @@
-import { listAccounts } from '@/api/routes'
+'use client'
+
 import { User2, Eye, Dot } from 'lucide-react'
 
-export default async function Accounts() {
-  const [accountData] = await listAccounts()
+export interface ViewAccountProps {
+  id: number
+  balance: number
+  owner: string
+}
 
+export function ViewAccount({ id, balance, owner }: ViewAccountProps) {
   return (
     <div className="flex h-screen flex-col overflow-scroll bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
       <div className="mx-12">
@@ -16,20 +21,20 @@ export default async function Accounts() {
         <div className="mb-8 mt-16 rounded-3xl bg-white p-5">
           <div className="mt-2 flex items-center">
             <Dot size={40} className="mt-1" color="black" />
-            <strong className="text-xl text-black">{accountData.id}</strong>
+            <strong className="text-xl text-black">{id}</strong>
           </div>
 
           <div className="ml-4 mt-20">
             <h2 className="text-xl font-bold text-gray-950">Balance</h2>
             <strong className="mt-3 block text-3xl text-black">
-              $ {accountData.balance},00
+              $ {balance},00
             </strong>
             <strong className="mt-7 block font-extrabold text-gray-800">
-              {accountData.owner}
+              {owner}
             </strong>
           </div>
           <a
-            href="/transfer"
+            href="/send_transfer"
             className="mt-10 block min-w-full rounded-2xl bg-black p-6 text-center text-white hover:bg-gray-950"
           >
             Send Money

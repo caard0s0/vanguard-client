@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { userCookie } from '@/utils/userCookie'
-import { UserSignIn } from '@/app/(auth)/signin/page'
-import { UserSignUp } from '@/app/(auth)/signup/page'
-import { UserTransfer } from '@/app/transfer/page'
-import { Currency } from '@/app/currency/page'
+import { UserSignIn } from '@/app/(auth)/signin/SignIn'
+import { UserSignUp } from '@/app/(auth)/signup/SignUp'
+import { UserTransfer } from '@/app/send_transfer/SendTransfer'
+import { UserCurrency } from '@/app/create_account/CreateAccount'
 
 export const createUser = async (user: UserSignUp) => {
   const { data } = await axios.post(
@@ -26,7 +26,7 @@ export const loginUser = async (user: UserSignIn) => {
   return data
 }
 
-export const createAccount = async (currency: Currency) => {
+export const createAccount = async (currency: UserCurrency) => {
   const accessToken = await userCookie()
 
   const response = await axios.post(
