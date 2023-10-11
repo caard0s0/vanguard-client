@@ -57,46 +57,30 @@ A Financial Software specialized in the intermediation of money between savers a
     git clone https://github.com/caard0s0/united-atomic-bank-client.git
     ```
 
-2. Install <strong>Golang-Migrate</strong> as CLI. for more information visit <a href="https://github.com/golang-migrate/migrate/tree/master/cmd/migrate">Golang CLI Documentation</a>.
+2. Install all project dependencies in the <strong>root</strong> directory.
+
+    ```bash
+    npm install
+    ```
 
 3. Create an `.env.local` file with environment variables.
 
-    <strong>WARNING:</strong> The values ​​below are for testing purposes only, please change them in the future.
-
     ```bash
-    cat > app.env << EOF
+    cat > .env.local << EOF
     SERVER_PORT=8080
     HTTP_SERVER_ADDRESS=http://localhost:$SERVER_PORT
     EOF
     ```
-
-4. Install <strong>GoMock</strong> and be able to use the <strong>MockGen</strong> tool.
-
-    - Framework installation.
-
-        ```bash
-        go install github.com/golang/mock/mockgen@v1.6.0
-        ```
-
-    - add a PATH to your <strong>go/bin</strong> folder in the `~/.zshrc` file or another Shell.
-
-        <strong>WARNING:</strong> This PATH below is just an example.
-
-        ```bash
-        export PATH=$PATH:~/.asdf/installs/golang/1.21.0/packages/bin
-        ```
-
-5. Install <strong>SQLC</strong>. for more information visit <a href="https://docs.sqlc.dev/en/latest/index.html">SQLC Documentation</a>.
 
 <!-- Usage -->
 <h2 id="usage">Usage</h2>
 
 <p>After completing the installation, you can run the project.</p>
 
-1. Create and run the <strong>Containers</strong>.
+1. Starting the project.
 
-    ```cmd
-    docker compose up -d
+    ```bash
+    npm run dev
     ```
 
 <br>
