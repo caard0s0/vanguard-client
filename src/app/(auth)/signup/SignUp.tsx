@@ -73,6 +73,7 @@ export function SignUp() {
             inputType="text"
             text="Enter your Email"
           />
+
           <Form.Button text="Create User" />
         </Form.Root>
       </div>

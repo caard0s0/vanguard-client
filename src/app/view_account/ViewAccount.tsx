@@ -7,6 +7,7 @@ import {
   DotOutline,
   DotsThreeOutline,
 } from '@phosphor-icons/react'
+import Link from 'next/link'
 import { useState } from 'react'
 
 export interface ViewAccountProps {
@@ -61,12 +62,12 @@ export function ViewAccount({ id, balance, owner }: ViewAccountProps) {
               {owner}
             </strong>
           </div>
-          <a
+          <Link
             href="/send_transfer"
             className="mt-10 block min-w-full rounded-2xl bg-black p-6 text-center text-white hover:bg-gray-950"
           >
             Send Money
-          </a>
+          </Link>
         </div>
 
         <div>

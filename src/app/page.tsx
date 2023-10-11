@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { User2, Menu, X, MoveRight } from 'lucide-react'
 import { useState } from 'react'
 
@@ -13,6 +14,7 @@ export default function Home() {
         <nav className="flex items-center justify-between bg-white pr-5">
           <a href="#">
             <Image
+              priority={true}
               src="/united_atomic_bank_logo_black.svg"
               width={75}
               height={75}
@@ -45,13 +47,13 @@ export default function Home() {
                     <a>Support</a>
                   </li>
                   <li>
-                    <a href="/signin" className="flex items-center gap-2">
+                    <Link href="/signin" className="flex items-center gap-2">
                       <User2 size={19} color="black" />
                       Sign In
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/signup">Start Free Account</a>
+                    <Link href="/signup">Start Free Account</Link>
                   </li>
                 </ul>
               </nav>
@@ -82,9 +84,9 @@ export default function Home() {
               A Super App that simplifies your life
             </h2>
             <div className="mt-9 flex items-center justify-center gap-2 font-bold text-blue-900 hover:text-blue-700">
-              <a className="text-xl font-bold" href="/signup">
+              <Link className="text-xl font-bold" href="/signup">
                 Start Free Account
-              </a>
+              </Link>
               <MoveRight size={30} className="mt-1" />
             </div>
           </div>
