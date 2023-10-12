@@ -7,6 +7,7 @@ import {
   DotOutline,
   DotsThreeOutline,
 } from '@phosphor-icons/react'
+import { useFormatter } from 'next-intl'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -14,10 +15,21 @@ export interface ViewAccountProps {
   id: number
   balance: number
   owner: string
+  currency: string
 }
 
-export function ViewAccount({ id, balance, owner }: ViewAccountProps) {
+export function ViewAccount({
+  id,
+  balance,
+  owner,
+  currency,
+}: ViewAccountProps) {
   const [toggleHideBalance, setToggleHideBalance] = useState(true)
+
+  const formatNumber = useFormatter().number(balance, {
+    style: 'currency',
+    currency,
+  })
 
   return (
     <div className="flex h-screen flex-col overflow-scroll bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
@@ -52,7 +64,7 @@ export function ViewAccount({ id, balance, owner }: ViewAccountProps) {
             <h2 className="text-xl font-bold text-gray-950">Balance</h2>
             {toggleHideBalance ? (
               <strong className="mt-3 block text-3xl text-black">
-                $ {balance},00
+                {formatNumber}
               </strong>
             ) : (
               <DotsThreeOutline size={48} weight="fill" />

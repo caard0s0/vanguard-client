@@ -3,7 +3,7 @@
 <!-- About the Project -->
 <div align="center">
     <h2>UAB - Web Version</h2>
-    <p>A Complete Financial Software for Financial Institutions, developed with <a href="https://react.dev/">React</a> and <a href="https://nextjs.org/">Next.js</a>.</p>
+    <p>A complete Financial Software for Financial Institutions, developed with <a href="https://react.dev/">React</a> and <a href="https://nextjs.org/">Next.js</a>.</p>
     <a href="https://github.com/caard0s0/united-atomic-bank-client/issues">Report Bugs</a>
     &nbsp;&bull;&nbsp;
     <a href="https://github.com/caard0s0/united-atomic-bank-client/actions">Actions</a>

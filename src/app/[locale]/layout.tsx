@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 
-import './global.css'
+import '../../styles/global.css'
+import { notFound } from 'next/navigation'
+import { NextIntlClientProvider } from 'next-intl'
 
 export const metadata: Metadata = {
   title: {
@@ -34,14 +36,30 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
 }
 
-export default function RootLayout({
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'pt-br' }]
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode
+  params: { locale: string }
 }) {
+  let messages
+  try {
+    messages = (await import(`../../messages/${params.locale}.json`)).default
+  } catch (error) {
+    notFound()
+  }
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang={params.locale}>
+      <body>
+        <NextIntlClientProvider locale={params.locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </body>
     </html>
   )
 }

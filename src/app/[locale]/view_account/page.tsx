@@ -15,6 +15,7 @@ export default async function Page() {
         id={accountData.id}
         balance={accountData.balance}
         owner={accountData.owner}
+        currency={accountData.currency}
       />
     </>
   )
