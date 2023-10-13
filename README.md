@@ -67,8 +67,7 @@ A Financial Software specialized in the intermediation of money between savers a
 
     ```bash
     cat > .env.local << EOF
-    SERVER_PORT=8080
-    HTTP_SERVER_ADDRESS=http://localhost:$SERVER_PORT
+    HTTP_SERVER_ADDRESS=http://localhost:8080
     EOF
     ```
 
