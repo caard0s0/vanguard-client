@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { userCookie } from '@/utils/userCookie'
+import { getUserCookie } from '@/utils/userCookie'
 import { UserSignIn } from '@/app/[locale]/(auth)/signin/SignIn'
 import { UserSignUp } from '@/app/[locale]/(auth)/signup/SignUp'
 import { UserTransfer } from '@/app/[locale]/send_transfer/SendTransfer'
@@ -27,7 +27,7 @@ export const loginUser = async (user: UserSignIn) => {
 }
 
 export const createAccount = async (currency: UserCurrency) => {
-  const accessToken = await userCookie()
+  const accessToken = await getUserCookie()
 
   const response = await axios.post(
     `${process.env.HTTP_SERVER_ADDRESS}/accounts`,
@@ -45,7 +45,7 @@ export const createAccount = async (currency: UserCurrency) => {
 }
 
 export const listAccounts = async () => {
-  const accessToken = await userCookie()
+  const accessToken = await getUserCookie()
 
   const { data } = await axios.get(
     `${process.env.HTTP_SERVER_ADDRESS}/accounts?page_id=1&page_size=5`,
@@ -62,7 +62,7 @@ export const listAccounts = async () => {
 }
 
 export const createTransfer = async (transfer: UserTransfer) => {
-  const accessToken = await userCookie()
+  const accessToken = await getUserCookie()
 
   const { data } = await axios.post(
     `${process.env.HTTP_SERVER_ADDRESS}/transfers`,

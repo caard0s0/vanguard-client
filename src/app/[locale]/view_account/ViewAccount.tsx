@@ -1,12 +1,13 @@
 'use client'
 
+import { deleteUserCookie } from '@/utils/userCookie'
 import {
   Eye,
   EyeClosed,
-  User,
   DotOutline,
   DotsThreeOutline,
 } from '@phosphor-icons/react'
+import { LogOut } from 'lucide-react'
 import { useFormatter } from 'next-intl'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -51,7 +52,9 @@ export function ViewAccount({
             />
           )}
           <h1 className="text-4xl font-semibold text-white">UAB</h1>
-          <User size={32} color="white" />
+          <Link onClick={() => deleteUserCookie()} href="/signin">
+            <LogOut className="cursor-pointer" size={32} color="white" />
+          </Link>
         </header>
 
         <div className="mb-8 mt-16 rounded-3xl bg-white p-5">
