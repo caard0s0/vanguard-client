@@ -28,7 +28,6 @@ export function FormInputContent({
         autoComplete="off"
         spellCheck="false"
         required
-        autoFocus
         size={42}
         maxLength={256}
       />

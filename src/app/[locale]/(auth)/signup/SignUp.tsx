@@ -5,6 +5,7 @@ import { createUser } from '@/api/routes'
 import { useRouter } from 'next/navigation'
 import { FormHeader } from '@/components/Form/FormHeader'
 import { Form } from '@/components/Form'
+import { FormClose } from '@/components/Form/FormClose'
 
 export interface UserSignUp {
   username: string
@@ -40,8 +41,10 @@ export function SignUp() {
   }
 
   return (
-    <div className="flex h-screen flex-col items-center bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
-      <FormHeader text="Sign Up Form" />
+    <div className="relative flex h-screen flex-col items-center bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
+      <FormClose link="/" />
+
+      <FormHeader text="Open your account" />
 
       <div className="mt-5 bg-[#1c2026] p-10">
         <Form.Root handleSubmit={handleSubmit}>

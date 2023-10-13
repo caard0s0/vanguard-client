@@ -5,6 +5,7 @@ import { createTransfer } from '@/api/routes'
 import { useRouter } from 'next/navigation'
 import { FormHeader } from '@/components/Form/FormHeader'
 import { Form } from '@/components/Form'
+import { FormClose } from '@/components/Form/FormClose'
 
 export interface UserTransfer {
   from_account_id: number
@@ -45,7 +46,9 @@ export function SendTransfer({ id, currency }: SendTransferProps) {
   }
 
   return (
-    <div className="flex h-screen flex-col items-center bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
+    <div className="relative flex h-screen flex-col items-center bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
+      <FormClose link="/view_account" />
+
       <FormHeader text="Transfer Form" />
 
       <div className="mt-5 bg-[#1c2026] p-10">

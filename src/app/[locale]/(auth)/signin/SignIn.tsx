@@ -5,6 +5,8 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { listAccounts, loginUser } from '@/api/routes'
 import { FormHeader } from '@/components/Form/FormHeader'
 import { Form } from '@/components/Form'
+import Link from 'next/link'
+import { FormClose } from '@/components/Form/FormClose'
 
 export interface UserSignIn {
   username: string
@@ -40,8 +42,10 @@ export function SignIn() {
   }
 
   return (
-    <div className="flex h-screen flex-col items-center bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
-      <FormHeader text="Sign In Form" />
+    <div className="relative flex h-screen flex-col items-center bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
+      <FormClose link="/" />
+
+      <FormHeader text="Access your account" />
 
       <div className="mt-5 bg-[#1c2026] p-10">
         <Form.Root handleSubmit={handleSubmit}>
@@ -61,6 +65,15 @@ export function SignIn() {
           />
           <Form.Button text="Login User" />
         </Form.Root>
+      </div>
+
+      <div className="mt-2">
+        <Link
+          className="text-lg font-semibold text-white underline-offset-4 transition-all hover:text-[#00ffff] hover:underline"
+          href="/signup"
+        >
+          I&apos;m not a client
+        </Link>
       </div>
     </div>
   )
