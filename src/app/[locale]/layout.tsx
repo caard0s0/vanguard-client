@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 }
 
 export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'pt-br' }]
+  return [{ locale: 'en-US' }, { locale: 'pt-BR' }]
 }
 
 export default async function RootLayout({

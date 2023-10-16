@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import { ChangeEvent } from 'react'
 
 interface FormSelectContentProps {
@@ -13,6 +14,8 @@ export function FormSelectContent({
   selectName,
   selectValue,
 }: FormSelectContentProps) {
+  const selectFormContent = useTranslations('select_form')
+
   return (
     <div>
       <label className="block text-sm text-white opacity-80">{text}</label>
@@ -24,7 +27,7 @@ export function FormSelectContent({
         required
       >
         <option className="bg-[#1c2026]" value="">
-          --Please choose an option--
+          {selectFormContent('option')}
         </option>
         <option className="bg-[#1c2026]" value="BRL">
           BRL

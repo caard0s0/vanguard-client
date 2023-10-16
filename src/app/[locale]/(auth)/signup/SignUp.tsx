@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { FormHeader } from '@/components/Form/FormHeader'
 import { Form } from '@/components/Form'
 import { FormClose } from '@/components/Form/FormClose'
+import { useTranslations } from 'next-intl'
 
 export interface UserSignUp {
   username: string
@@ -22,6 +23,10 @@ export function SignUp() {
     full_name: '',
     email: '',
   })
+
+  const headerFormContent = useTranslations('header_form')
+  const inputFormContent = useTranslations('input_form')
+  const buttonFormContent = useTranslations('button_form')
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -44,7 +49,7 @@ export function SignUp() {
     <div className="relative flex h-screen flex-col items-center bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
       <FormClose link="/" />
 
-      <FormHeader text="Open your account" />
+      <FormHeader text={headerFormContent('open_account')} />
 
       <div className="mt-5 bg-[#1c2026] p-10">
         <Form.Root handleSubmit={handleSubmit}>
@@ -53,31 +58,31 @@ export function SignUp() {
             inputName="username"
             inputValue={user.username}
             inputType="text"
-            text="Enter your Username"
+            text={inputFormContent('username')}
           />
           <Form.Input
             handleChange={handleChange}
             inputName="password"
             inputValue={user.password}
             inputType="password"
-            text="Enter your Password"
+            text={inputFormContent('password')}
           />
           <Form.Input
             handleChange={handleChange}
             inputName="full_name"
             inputValue={user.full_name}
             inputType="text"
-            text="Enter your Full Name"
+            text={inputFormContent('full_name')}
           />
           <Form.Input
             handleChange={handleChange}
             inputName="email"
             inputValue={user.email}
             inputType="text"
-            text="Enter your Email"
+            text={inputFormContent('email')}
           />
 
-          <Form.Button text="Create User" />
+          <Form.Button text={buttonFormContent('create_user')} />
         </Form.Root>
       </div>
     </div>

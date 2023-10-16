@@ -1,0 +1,46 @@
+{
+  "home_nav": {
+    "about_link": "About",
+    "support_link": "Support",
+    "signin_link": "Sign In",
+    "start_account_link": "Start Free Account"
+  },
+  "home": {
+    "company_name": "UAB",
+    "span_1": "More than a bank",
+    "span_2": "A Super App that simplifies your life",
+    "start_account_link": "Start Free Account"
+  },
+  "header_form": {
+    "access_account": "Access your account",
+    "open_account": "Open your account",
+    "create_account": "Form to create account"
+  },
+  "input_form": {
+    "username": "Enter your Username",
+    "password": "Enter your Password",
+    "full_name": "Enter your Full Name",
+    "email": "Enter your Email",
+    "recipient's_id": "Enter the recipient's ID",
+    "amount": "Enter the Amount"
+  },
+  "select_form": {
+    "currency": "Choose your country's currency",
+    "option": "Please choose an option"
+  },
+  "button_form": {
+    "create_user": "Create User",
+    "login_user": "Login User",
+    "create_account": "Create Account",
+    "send_transfer": "Send Transfer"
+  },
+  "link_form": {
+    "link_to_create_user": "I'm not a client"
+  },
+  "view_account": {
+    "company_name": "UAB",
+    "balance": "Balance",
+    "send_money": "Send Money",
+    "transactions": "Transactions"
+  }
+}

@@ -4,14 +4,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { User2, Menu, X, MoveRight } from 'lucide-react'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 export default function Home() {
   const [toggleMenu, setToggleMenu] = useState(false)
 
+  const homeContent = useTranslations('home')
+  const homeNavContent = useTranslations('home_nav')
+
   return (
     <div className="bg-white">
       <header>
-        <nav className="flex items-center justify-between bg-white pr-5">
+        <nav className="relative flex items-center justify-between bg-white pr-5">
           <a href="#">
             <Image
               priority={true}
@@ -21,6 +25,26 @@ export default function Home() {
               alt="United Atomic Bank Logo"
             />
           </a>
+
+          <div className="absolute right-20 flex">
+            <a className="rounded-full p-2 hover:bg-gray-300" href="/en-US">
+              <Image
+                src="/united-states-flag.png"
+                height={22}
+                width={22}
+                alt="United States Flag"
+              />
+            </a>
+
+            <a className="rounded-full p-2 hover:bg-gray-300" href="/pt-BR">
+              <Image
+                src="/brazil-flag.png"
+                height={22}
+                width={22}
+                alt="United States Flag"
+              />
+            </a>
+          </div>
 
           {toggleMenu ? (
             <X
@@ -41,19 +65,21 @@ export default function Home() {
               <nav onClick={() => setToggleMenu(false)}>
                 <ul className="mt-20 flex cursor-pointer flex-col items-center gap-10 text-xl font-semibold text-zinc-950">
                   <li>
-                    <a>About</a>
+                    <a>{homeNavContent('about_link')}</a>
                   </li>
                   <li>
-                    <a>Support</a>
+                    <a>{homeNavContent('support_link')}</a>
                   </li>
                   <li>
                     <Link href="/signin" className="flex items-center gap-2">
                       <User2 size={19} color="black" />
-                      Sign In
+                      {homeNavContent('signin_link')}
                     </Link>
                   </li>
                   <li>
-                    <Link href="/signup">Start Free Account</Link>
+                    <Link href="/signup">
+                      {homeNavContent('start_account_link')}
+                    </Link>
                   </li>
                 </ul>
               </nav>
@@ -78,14 +104,16 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex flex-col items-center">
-            <h1 className="text-4xl font-semibold text-blue-950">UAB</h1>
-            <p className="mt-4 text-gray-600">More than a bank</p>
-            <h2 className="text-extrabold mx-16 mt-1 text-center text-3xl text-zinc-950">
-              A Super App that simplifies your life
-            </h2>
+            <h1 className="text-4xl font-semibold text-blue-950">
+              {homeContent('company_name')}
+            </h1>
+            <span className="mt-4 text-gray-600">{homeContent('span_1')}</span>
+            <span className="text-extrabold mx-16 mt-1 text-center text-3xl text-zinc-950">
+              {homeContent('span_2')}
+            </span>
             <div className="mt-9 flex items-center justify-center gap-2 font-bold text-blue-900 hover:text-blue-700">
               <Link className="text-xl font-bold" href="/signup">
-                Start Free Account
+                {homeContent('start_account_link')}
               </Link>
               <MoveRight size={30} className="mt-1" />
             </div>

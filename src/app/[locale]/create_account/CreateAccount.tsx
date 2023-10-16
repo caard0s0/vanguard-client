@@ -7,6 +7,7 @@ import { FormHeader } from '@/components/Form/FormHeader'
 import { Form } from '@/components/Form'
 import { FormButton } from '@/components/Form/FormButton'
 import { FormClose } from '@/components/Form/FormClose'
+import { useTranslations } from 'next-intl'
 
 export interface UserCurrency {
   currency: string
@@ -17,6 +18,10 @@ export function CreateAccount() {
   const [userCurrency, setUserCurrency] = useState<UserCurrency>({
     currency: '',
   })
+
+  const headerFormContent = useTranslations('header_form')
+  const selectFormContent = useTranslations('select_form')
+  const buttonFormContent = useTranslations('button_form')
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -40,7 +45,7 @@ export function CreateAccount() {
     <div className="relative flex h-screen flex-col items-center bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
       <FormClose link="/" />
 
-      <FormHeader text="Create Account's Form" />
+      <FormHeader text={headerFormContent('create_account')} />
 
       <div className="mt-5 bg-[#1c2026] p-10">
         <Form.Root handleSubmit={handleSubmit}>
@@ -48,9 +53,9 @@ export function CreateAccount() {
             handleChange={handleChange}
             selectName="currency"
             selectValue={userCurrency.currency}
-            text="Choose your country's currency"
+            text={selectFormContent('currency')}
           />
-          <FormButton text="Create Account" />
+          <FormButton text={buttonFormContent('create_account')} />
         </Form.Root>
       </div>
     </div>

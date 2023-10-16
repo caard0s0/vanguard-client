@@ -7,6 +7,7 @@ import { FormHeader } from '@/components/Form/FormHeader'
 import { Form } from '@/components/Form'
 import Link from 'next/link'
 import { FormClose } from '@/components/Form/FormClose'
+import { useTranslations } from 'next-intl'
 
 export interface UserSignIn {
   username: string
@@ -19,6 +20,11 @@ export function SignIn() {
     username: '',
     password: '',
   })
+
+  const headerFormContent = useTranslations('header_form')
+  const inputFormContent = useTranslations('input_form')
+  const buttonFormContent = useTranslations('button_form')
+  const linkFormContent = useTranslations('link_form')
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -45,7 +51,7 @@ export function SignIn() {
     <div className="relative flex h-screen flex-col items-center bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
       <FormClose link="/" />
 
-      <FormHeader text="Access your account" />
+      <FormHeader text={headerFormContent('access_account')} />
 
       <div className="mt-5 bg-[#1c2026] p-10">
         <Form.Root handleSubmit={handleSubmit}>
@@ -54,16 +60,16 @@ export function SignIn() {
             inputName="username"
             inputValue={user.username}
             inputType="text"
-            text="Enter your Username"
+            text={inputFormContent('username')}
           />
           <Form.Input
             handleChange={handleChange}
             inputName="password"
             inputValue={user.password}
             inputType="password"
-            text="Enter your Password"
+            text={inputFormContent('password')}
           />
-          <Form.Button text="Login User" />
+          <Form.Button text={buttonFormContent('login_user')} />
         </Form.Root>
       </div>
 
@@ -72,7 +78,7 @@ export function SignIn() {
           className="text-lg font-semibold text-white underline-offset-4 transition-all hover:text-[#00ffff] hover:underline"
           href="/signup"
         >
-          I&apos;m not a client
+          {linkFormContent('link_to_create_user')}
         </Link>
       </div>
     </div>
