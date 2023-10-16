@@ -9,7 +9,6 @@ import {
 } from '@phosphor-icons/react'
 import { LogOut } from 'lucide-react'
 import { useFormatter, useTranslations } from 'next-intl'
-import Link from 'next/link'
 import { useState } from 'react'
 
 export interface ViewAccountProps {
@@ -54,9 +53,9 @@ export function ViewAccount({
             />
           )}
           <h1 className="text-4xl font-semibold text-white">UAB</h1>
-          <Link onClick={() => deleteUserCookie()} href="/signin">
+          <a onClick={() => deleteUserCookie()} href="/signin">
             <LogOut className="cursor-pointer" size={32} color="white" />
-          </Link>
+          </a>
         </header>
 
         <div className="mb-8 mt-16 rounded-3xl bg-white p-5">
@@ -81,12 +80,12 @@ export function ViewAccount({
               {owner}
             </strong>
           </div>
-          <Link
+          <a
             href="/send_transfer"
             className="mt-10 block min-w-full rounded-2xl bg-black p-6 text-center text-white hover:bg-gray-950"
           >
             {viewAccountContent('send_money')}
-          </Link>
+          </a>
         </div>
 
         <div>
