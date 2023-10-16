@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { User2, Menu, X, MoveRight } from 'lucide-react'
+import { Menu, X, MoveRight, LogIn } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 
@@ -25,8 +25,8 @@ export default function Home() {
             />
           </a>
 
-          <div className="absolute right-20 flex">
-            <a className="rounded-full p-2 hover:bg-gray-300" href="/en-US">
+          <div className="absolute right-20 flex gap-3">
+            <a className="grayscale hover:grayscale-0" href="/en-US">
               <Image
                 src="/united-states-flag.png"
                 height={22}
@@ -35,7 +35,7 @@ export default function Home() {
               />
             </a>
 
-            <a className="rounded-full p-2 hover:bg-gray-300" href="/pt-BR">
+            <a className="grayscale hover:grayscale-0" href="/pt-BR">
               <Image
                 src="/brazil-flag.png"
                 height={22}
@@ -71,7 +71,7 @@ export default function Home() {
                   </li>
                   <li>
                     <Link href="/signin" className="flex items-center gap-2">
-                      <User2 size={19} color="black" />
+                      <LogIn size={19} className="mt-1" color="black" />
                       {homeNavContent('signin_link')}
                     </Link>
                   </li>
