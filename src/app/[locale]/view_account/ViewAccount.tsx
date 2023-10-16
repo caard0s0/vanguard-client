@@ -53,9 +53,7 @@ export function ViewAccount({
               onClick={() => setToggleHideBalance(true)}
             />
           )}
-          <h1 className="text-4xl font-semibold text-white">
-            {viewAccountContent('company_name')}
-          </h1>
+          <h1 className="text-4xl font-semibold text-white">UAB</h1>
           <Link onClick={() => deleteUserCookie()} href="/signin">
             <LogOut className="cursor-pointer" size={32} color="white" />
           </Link>

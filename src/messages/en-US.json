@@ -6,7 +6,6 @@
     "start_account_link": "Start Free Account"
   },
   "home": {
-    "company_name": "UAB",
     "span_1": "More than a bank",
     "span_2": "A Super App that simplifies your life",
     "start_account_link": "Start Free Account"
@@ -14,7 +13,8 @@
   "header_form": {
     "access_account": "Access your account",
     "open_account": "Open your account",
-    "create_account": "Form to create account"
+    "create_account": "Form to create account",
+    "transfer_form": "Transfer Form"
   },
   "input_form": {
     "username": "Enter your Username",
@@ -38,7 +38,6 @@
     "link_to_create_user": "I'm not a client"
   },
   "view_account": {
-    "company_name": "UAB",
     "balance": "Balance",
     "send_money": "Send Money",
     "transactions": "Transactions"

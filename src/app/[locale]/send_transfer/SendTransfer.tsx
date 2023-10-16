@@ -29,6 +29,7 @@ export function SendTransfer({ id, currency }: SendTransferProps) {
     currency,
   })
 
+  const headerFormContent = useTranslations('header_form')
   const inputFormContent = useTranslations('input_form')
   const buttonFormContent = useTranslations('button_form')
 
@@ -53,7 +54,7 @@ export function SendTransfer({ id, currency }: SendTransferProps) {
     <div className="relative flex h-screen flex-col items-center bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
       <FormClose link="/view_account" />
 
-      <FormHeader text="Transfer Form" />
+      <FormHeader text={headerFormContent('transfer_form')} />
 
       <div className="mt-5 bg-[#1c2026] p-10">
         <Form.Root handleSubmit={handleSubmit}>

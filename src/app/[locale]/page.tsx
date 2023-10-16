@@ -18,11 +18,10 @@ export default function Home() {
         <nav className="relative flex items-center justify-between bg-white pr-5">
           <a href="#">
             <Image
-              priority={true}
               src="/united_atomic_bank_logo_black.svg"
               width={75}
               height={75}
-              alt="United Atomic Bank Logo"
+              alt="UAB Logo"
             />
           </a>
 
@@ -41,7 +40,7 @@ export default function Home() {
                 src="/brazil-flag.png"
                 height={22}
                 width={22}
-                alt="United States Flag"
+                alt="Brazil Flag"
               />
             </a>
           </div>
@@ -98,15 +97,13 @@ export default function Home() {
               width={450}
               height={450}
               src="/home_image.jpg"
-              alt="United Atomic Bank Logo"
+              alt="Mountains landscape"
             />
             <div className="absolute -bottom-1 right-0 h-7 w-32 bg-white"></div>
           </div>
 
           <div className="mt-10 flex flex-col items-center">
-            <h1 className="text-4xl font-semibold text-blue-950">
-              {homeContent('company_name')}
-            </h1>
+            <h1 className="text-4xl font-semibold text-blue-950">UAB</h1>
             <span className="mt-4 text-gray-600">{homeContent('span_1')}</span>
             <span className="text-extrabold mx-16 mt-1 text-center text-3xl text-zinc-950">
               {homeContent('span_2')}
