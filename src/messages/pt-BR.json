@@ -22,6 +22,7 @@
     "full_name": "Digite seu Nome Completo",
     "email": "Digite seu Email",
     "recipient's_id": "Insira o ID do destinatário",
+    "recipient's_owner": "Digite o Nome do destinatário",
     "amount": "Digite o Valor"
   },
   "select_form": {
@@ -40,6 +41,6 @@
   "view_account": {
     "balance": "Saldo",
     "send_money": "Enviar Dinheiro",
-    "transactions": "Transações"
+    "history": "Histórico"
   }
 }

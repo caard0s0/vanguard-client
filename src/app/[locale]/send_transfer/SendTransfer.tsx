@@ -10,21 +10,26 @@ import { useTranslations } from 'next-intl'
 
 export interface UserTransfer {
   from_account_id: number
+  from_account_owner: string
   to_account_id: number
+  to_account_owner: string
   amount: number
   currency: string
 }
 
 interface SendTransferProps {
   id: number
+  owner: string
   currency: string
 }
 
-export function SendTransfer({ id, currency }: SendTransferProps) {
+export function SendTransfer({ id, owner, currency }: SendTransferProps) {
   const router = useRouter()
   const [transfer, setTransfer] = useState<UserTransfer>({
     from_account_id: id,
+    from_account_owner: owner,
     to_account_id: 0,
+    to_account_owner: '',
     amount: 0,
     currency,
   })
@@ -34,8 +39,11 @@ export function SendTransfer({ id, currency }: SendTransferProps) {
   const buttonFormContent = useTranslations('button_form')
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, valueAsNumber } = e.target
-    setTransfer({ ...transfer, [name]: valueAsNumber })
+    const { name, valueAsNumber, value } = e.target
+    setTransfer({
+      ...transfer,
+      [name]: isNaN(valueAsNumber) ? value : valueAsNumber,
+    })
   }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -64,6 +72,13 @@ export function SendTransfer({ id, currency }: SendTransferProps) {
             inputValue={transfer.to_account_id}
             inputType="number"
             text={inputFormContent("recipient's_id")}
+          />
+          <Form.Input
+            handleChange={handleChange}
+            inputName="to_account_owner"
+            inputValue={transfer.to_account_owner}
+            inputType="text"
+            text={inputFormContent("recipient's_owner")}
           />
           <Form.Input
             handleChange={handleChange}

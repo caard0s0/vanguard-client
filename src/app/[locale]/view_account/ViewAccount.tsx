@@ -1,15 +1,24 @@
 'use client'
 
-import { deleteUserCookie } from '@/utils/userCookie'
+import { deleteUserCookie, getUserCookie } from '@/utils/userCookie'
 import {
   Eye,
   EyeClosed,
   DotOutline,
   DotsThreeOutline,
 } from '@phosphor-icons/react'
+import axios from 'axios'
 import { LogOut } from 'lucide-react'
 import { useFormatter, useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+interface Transfer {
+  id: number
+  from_account_owner: string
+  to_account_owner: string
+  amount: number
+  created_at: string
+}
 
 export interface ViewAccountProps {
   id: number
@@ -25,16 +34,30 @@ export function ViewAccount({
   currency,
 }: ViewAccountProps) {
   const [toggleHideBalance, setToggleHideBalance] = useState(true)
+  const [transfers, setTransfers] = useState<Transfer[]>([])
+  const format = useFormatter()
 
-  const formatNumber = useFormatter().number(balance, {
-    style: 'currency',
-    currency,
-  })
+  useEffect(() => {
+    ;(async function () {
+      const accessToken = await getUserCookie()
+
+      const { data } = await axios.get(
+        `${process.env.HTTP_SERVER_ADDRESS}/transfers?page_id=1&page_size=5`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        },
+      )
+
+      setTransfers(data)
+    })()
+  }, [])
 
   const viewAccountContent = useTranslations('view_account')
 
   return (
-    <div className="flex h-screen flex-col overflow-scroll bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
+    <div className="flex h-screen max-w-md flex-col overflow-scroll bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
       <div className="mx-12">
         <header className="mt-10 flex items-center justify-between">
           {toggleHideBalance ? (
@@ -70,7 +93,10 @@ export function ViewAccount({
             </h2>
             {toggleHideBalance ? (
               <strong className="mt-3 block text-3xl text-black">
-                {formatNumber}
+                {format.number(balance, {
+                  style: 'currency',
+                  currency,
+                })}
               </strong>
             ) : (
               <DotsThreeOutline size={48} weight="fill" />
@@ -89,16 +115,42 @@ export function ViewAccount({
         </div>
 
         <div>
-          <h2 className="text-xl font-bold text-white">
-            {viewAccountContent('transactions')}
+          <h2 className="mb-1 text-xl font-bold text-white">
+            {viewAccountContent('history')}
           </h2>
-          <div className="my-3 rounded-3xl bg-white px-6 py-3">
-            <div className="flex items-center justify-between">
-              <strong className="text-lg">João Pedro</strong>
-              <strong className="text-lg">$ 5.99</strong>
-            </div>
-            <span className="text-sm">20 FEV 2023</span>
-          </div>
+          {transfers.map((transfer) => {
+            return (
+              <div
+                key={transfer.id}
+                className="my-3 rounded-3xl bg-white px-6 py-3"
+              >
+                <div>
+                  <div className="flex justify-between">
+                    <span className="text-xs font-bold uppercase text-black">
+                      Transfer sent
+                    </span>
+                    <span className="text-sm uppercase text-gray-900">
+                      {format.dateTime(new Date(transfer.created_at), {
+                        month: 'short',
+                        day: 'numeric',
+                      })}
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-md uppercase text-gray-900">
+                      {transfer.to_account_owner}
+                    </span>
+                    <span className="text-lg text-gray-900">
+                      {format.number(transfer.amount, {
+                        style: 'currency',
+                        currency,
+                      })}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>

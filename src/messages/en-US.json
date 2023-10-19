@@ -22,6 +22,7 @@
     "full_name": "Enter your Full Name",
     "email": "Enter your Email",
     "recipient's_id": "Enter the recipient's ID",
+    "recipient's_owner": "Enter the recipient's Name",
     "amount": "Enter the Amount"
   },
   "select_form": {
@@ -40,6 +41,6 @@
   "view_account": {
     "balance": "Balance",
     "send_money": "Send Money",
-    "transactions": "Transactions"
+    "history": "History"
   }
 }

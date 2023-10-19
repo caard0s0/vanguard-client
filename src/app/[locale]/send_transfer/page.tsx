@@ -11,7 +11,11 @@ export default async function Page() {
 
   return (
     <>
-      <SendTransfer id={accountData.id} currency={accountData.currency} />
+      <SendTransfer
+        owner={accountData.owner}
+        id={accountData.id}
+        currency={accountData.currency}
+      />
     </>
   )
 }

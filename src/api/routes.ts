@@ -39,7 +39,7 @@ export const createAccount = async (currency: UserCurrency) => {
     },
   )
 
-  if (response.status === 200) return response.data
+  if (response.status === 201) return response.data
 
   return undefined
 }
