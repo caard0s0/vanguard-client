@@ -42,7 +42,7 @@ export function ViewAccount({
       const accessToken = await getUserCookie()
 
       const { data } = await axios.get(
-        `${process.env.HTTP_SERVER_ADDRESS}/transfers?page_id=1&page_size=5`,
+        `${process.env.HTTP_SERVER_ADDRESS}/transfers?page_id=1&page_size=50`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
