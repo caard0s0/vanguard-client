@@ -41,6 +41,8 @@
   "view_account": {
     "balance": "Saldo",
     "send_money": "Enviar Dinheiro",
-    "history": "Histórico"
+    "history": "Histórico",
+    "transfer_sent": "Transferência Enviada",
+    "transfer_received": "Transferência Recebida"
   }
 }

@@ -41,6 +41,8 @@
   "view_account": {
     "balance": "Balance",
     "send_money": "Send Money",
-    "history": "History"
+    "history": "History",
+    "transfer_sent": "Transfer sent",
+    "transfer_received": "Transfer received"
   }
 }

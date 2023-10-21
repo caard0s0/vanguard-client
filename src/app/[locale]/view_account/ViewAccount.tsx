@@ -1,29 +1,21 @@
 'use client'
 
-import { deleteUserCookie, getUserCookie } from '@/utils/userCookie'
+import { TransferHistory } from '@/components/ViewAccount/TransferHistory'
+import { deleteUserCookie } from '@/utils/userCookie'
 import {
   Eye,
   EyeClosed,
   DotOutline,
   DotsThreeOutline,
 } from '@phosphor-icons/react'
-import axios from 'axios'
 import { LogOut } from 'lucide-react'
 import { useFormatter, useTranslations } from 'next-intl'
-import { useEffect, useState } from 'react'
-
-interface Transfer {
-  id: number
-  from_account_owner: string
-  to_account_owner: string
-  amount: number
-  created_at: string
-}
+import { useState } from 'react'
 
 export interface ViewAccountProps {
   id: number
-  balance: number
   owner: string
+  balance: number
   currency: string
 }
 
@@ -34,25 +26,7 @@ export function ViewAccount({
   currency,
 }: ViewAccountProps) {
   const [toggleHideBalance, setToggleHideBalance] = useState(true)
-  const [transfers, setTransfers] = useState<Transfer[]>([])
   const format = useFormatter()
-
-  useEffect(() => {
-    ;(async function () {
-      const accessToken = await getUserCookie()
-
-      const { data } = await axios.get(
-        `${process.env.HTTP_SERVER_ADDRESS}/transfers?page_id=1&page_size=50`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        },
-      )
-
-      setTransfers(data)
-    })()
-  }, [])
 
   const viewAccountContent = useTranslations('view_account')
 
@@ -113,44 +87,11 @@ export function ViewAccount({
             {viewAccountContent('send_money')}
           </a>
         </div>
-
         <div>
           <h2 className="mb-1 text-xl font-bold text-white">
             {viewAccountContent('history')}
           </h2>
-          {transfers.map((transfer) => {
-            return (
-              <div
-                key={transfer.id}
-                className="my-3 rounded-3xl bg-white px-6 py-3"
-              >
-                <div>
-                  <div className="flex justify-between">
-                    <span className="text-xs font-bold uppercase text-black">
-                      Transfer sent
-                    </span>
-                    <span className="text-sm uppercase text-gray-900">
-                      {format.dateTime(new Date(transfer.created_at), {
-                        month: 'short',
-                        day: 'numeric',
-                      })}
-                    </span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-md uppercase text-gray-900">
-                      {transfer.to_account_owner}
-                    </span>
-                    <span className="text-lg text-gray-900">
-                      {format.number(transfer.amount, {
-                        style: 'currency',
-                        currency,
-                      })}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            )
-          })}
+          <TransferHistory owner={owner} currency={currency} />,
         </div>
       </div>
     </div>
