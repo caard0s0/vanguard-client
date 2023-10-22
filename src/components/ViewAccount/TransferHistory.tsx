@@ -1,7 +1,6 @@
-import { getUserCookie } from '@/utils/userCookie'
-import axios from 'axios'
+import { listTransfers } from '@/api/routes'
 import { useFormatter, useTranslations } from 'next-intl'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 interface TransferHistoryProps {
   owner: string
@@ -22,19 +21,9 @@ export function TransferHistory({ owner, currency }: TransferHistoryProps) {
   const transfersOrderedTopBottom = [...transfers].sort((a, b) => b.id - a.id)
 
   useEffect(() => {
-    ;(async function () {
-      const accessToken = await getUserCookie()
-
-      const { data } = await axios.get(
-        `${process.env.HTTP_SERVER_ADDRESS}/transfers?page_id=1&page_size=50`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        },
-      )
-
-      setTransfers(data)
+    ;(async () => {
+      const transferData = await listTransfers()
+      setTransfers(transferData)
     })()
   }, [])
 
