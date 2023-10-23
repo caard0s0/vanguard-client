@@ -71,6 +71,10 @@ A Financial Software specialized in the intermediation of money between savers a
     EOF
     ```
 
+<strong>WARNING:</strong> To install and use the <strong>Full Application</strong>, click on the <strong>Link</strong> below.
+
+4. Install the <strong>Server Side</strong>. for more information visit <a href="https://github.com/caard0s0/united-atomic-bank-server">UAB - API Server</a>.
+
 <!-- Usage -->
 <h2 id="usage">Usage</h2>
 
