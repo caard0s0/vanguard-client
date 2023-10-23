@@ -8,7 +8,7 @@ import {
   DotOutline,
   DotsThreeOutline,
 } from '@phosphor-icons/react'
-import { LogOut } from 'lucide-react'
+import { LogOut, ArrowLeftRight } from 'lucide-react'
 import { useFormatter, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
@@ -50,7 +50,7 @@ export function ViewAccount({
             />
           )}
           <h1 className="text-4xl font-semibold text-white">UAB</h1>
-          <a onClick={() => deleteUserCookie()} href="/signin">
+          <a onClick={async () => await deleteUserCookie()} href="/signin">
             <LogOut className="cursor-pointer" size={32} color="white" />
           </a>
         </header>
@@ -82,8 +82,9 @@ export function ViewAccount({
           </div>
           <a
             href="/send_transfer"
-            className="mt-10 block min-w-full rounded-2xl bg-black p-6 text-center text-white hover:bg-gray-950"
+            className="mt-10 flex justify-center gap-2 rounded-2xl bg-black p-6 text-white hover:bg-gray-950"
           >
+            <ArrowLeftRight color="green" className="mt-[2px]" />
             {viewAccountContent('send_money')}
           </a>
         </div>
