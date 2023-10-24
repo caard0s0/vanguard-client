@@ -46,12 +46,12 @@ export function SignUp() {
   }
 
   return (
-    <div className="relative flex h-screen flex-col items-center bg-[linear-gradient(215deg,_#171d26_15%,_#000_85%)]">
+    <div className="bg-dark-blue relative flex h-screen flex-col items-center">
       <FormClose link="/" />
 
       <FormHeader text={headerFormContent('open_account')} />
 
-      <div className="mt-5 bg-[#1c2026] p-10">
+      <div className="bg-form mt-5 p-10">
         <Form.Root handleSubmit={handleSubmit}>
           <Form.Input
             handleChange={handleChange}

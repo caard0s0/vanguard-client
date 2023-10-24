@@ -11,9 +11,9 @@
     "start_account_link": "Iniciar Conta Gratuita"
   },
   "header_form": {
-    "access_account": "Acesse sua conta",
     "open_account": "Abra sua conta",
-    "create_account": "Formulário para criar conta",
+    "access_account": "Acesse sua conta",
+    "create_account": "Quase lá...",
     "transfer_form": "Formulário de Transferência"
   },
   "input_form": {

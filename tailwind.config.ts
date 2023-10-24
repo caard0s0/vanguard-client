@@ -7,7 +7,14 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'dark-blue': 'linear-gradient(215deg, #171d26 15%, #000 85%)',
+      },
+      colors: {
+        form: '#1c2026',
+      },
+    },
   },
   plugins: [],
 }
