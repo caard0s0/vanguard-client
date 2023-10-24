@@ -59,12 +59,12 @@ export function SendTransfer({ id, owner, currency }: SendTransferProps) {
   }
 
   return (
-    <div className="bg-dark-blue relative flex h-screen flex-col items-center">
+    <div className="relative flex h-screen flex-col items-center bg-dark-blue">
       <FormClose link="/view_account" />
 
       <FormHeader text={headerFormContent('transfer_form')} />
 
-      <div className="bg-form mt-5 p-10">
+      <div className="mt-5 bg-form p-10">
         <Form.Root handleSubmit={handleSubmit}>
           <Form.Input
             handleChange={handleChange}

@@ -31,7 +31,7 @@ export function ViewAccount({
   const viewAccountContent = useTranslations('view_account')
 
   return (
-    <div className="bg-dark-blue flex h-screen max-w-md flex-col overflow-scroll">
+    <div className="flex h-screen max-w-md flex-col overflow-scroll bg-dark-blue">
       <div className="mx-12">
         <header className="mt-10 flex items-center justify-between">
           {toggleHideBalance ? (

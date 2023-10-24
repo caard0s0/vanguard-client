@@ -48,12 +48,12 @@ export function SignIn() {
   }
 
   return (
-    <div className="bg-dark-blue relative flex h-screen flex-col items-center">
+    <div className="relative flex h-screen flex-col items-center bg-dark-blue">
       <FormClose link="/" />
 
       <FormHeader text={headerFormContent('access_account')} />
 
-      <div className="bg-form mt-5 p-10">
+      <div className="mt-5 bg-form p-10">
         <Form.Root handleSubmit={handleSubmit}>
           <Form.Input
             handleChange={handleChange}
