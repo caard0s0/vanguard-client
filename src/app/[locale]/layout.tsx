@@ -3,6 +3,9 @@ import type { Metadata } from 'next'
 import '../../styles/global.css'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
@@ -55,7 +58,7 @@ export default async function RootLayout({
   }
   return (
     <html lang={params.locale}>
-      <body>
+      <body className={inter.className}>
         <NextIntlClientProvider locale={params.locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
