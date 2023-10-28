@@ -19,7 +19,7 @@ export function FormInputContent({
     <div>
       <label className="block text-sm text-white opacity-80">{text}</label>
       <input
-        className="border-b-2 border-[#78777f] bg-transparent py-2 text-base outline-0 focus:border-[#00ffff] focus:transition-all"
+        className="min-w-full border-b-2 border-[#78777f] bg-transparent py-2 text-base outline-0 focus:border-[#00ffff] focus:transition-all"
         type={inputType}
         name={inputName}
         value={inputValue}
