@@ -57,7 +57,7 @@ export function ViewAccount({
 
         <div className="mb-8 mt-16 rounded-3xl bg-white p-5">
           <div className="mt-2 flex items-center">
-            <DotOutline size={38} weight="fill" className="mt-1" />
+            <DotOutline size={38} weight="fill" />
             <strong className="text-xl text-black">{id}</strong>
           </div>
 

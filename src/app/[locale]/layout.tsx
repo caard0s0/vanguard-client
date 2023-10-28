@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
+const timeZone = 'America/Sao_Paulo'
 
 export const metadata: Metadata = {
   title: {
@@ -59,7 +60,11 @@ export default async function RootLayout({
   return (
     <html lang={params.locale}>
       <body className={inter.className}>
-        <NextIntlClientProvider locale={params.locale} messages={messages}>
+        <NextIntlClientProvider
+          timeZone={timeZone}
+          locale={params.locale}
+          messages={messages}
+        >
           {children}
         </NextIntlClientProvider>
       </body>
