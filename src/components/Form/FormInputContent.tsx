@@ -19,7 +19,7 @@ export function FormInputContent({
     <div>
       <label className="block text-sm text-white opacity-80">{text}</label>
       <input
-        className="min-w-full border-b-2 border-[#78777f] bg-transparent py-2 text-base outline-0 focus:border-[#00ffff] focus:transition-all"
+        className="border-b-2 border-[#78777f] bg-transparent py-2 text-base outline-0 focus:border-[#00ffff] focus:transition-all"
         type={inputType}
         name={inputName}
         value={inputValue}
@@ -28,7 +28,7 @@ export function FormInputContent({
         autoComplete="off"
         spellCheck="false"
         required
-        size={42}
+        size={27}
         maxLength={256}
       />
     </div>

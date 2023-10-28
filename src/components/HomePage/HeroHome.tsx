@@ -29,7 +29,7 @@ export function HeroHome() {
           <Link className="text-xl font-bold" href="/signup">
             {homeContent('start_account_link')}
           </Link>
-          <MoveRight size={30} className="mt-1" />
+          <MoveRight size={30} />
         </div>
       </div>
     </>

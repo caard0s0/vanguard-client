@@ -66,7 +66,7 @@ export function NavBar() {
               </li>
               <li>
                 <Link href="/signin" className="flex items-center gap-2">
-                  <LogIn size={19} className="mt-1" color="black" />
+                  <LogIn size={19} color="black" />
                   {homeNavContent('signin_link')}
                 </Link>
               </li>
