@@ -94,6 +94,7 @@ export function ViewAccount({
           </h2>
           <TransferHistory owner={owner} currency={currency} />,
         </div>
+        <div className="mt-14"></div>
       </div>
     </div>
   )
