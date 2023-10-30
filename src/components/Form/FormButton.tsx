@@ -11,7 +11,7 @@ export function FormButton({ text }: FormButtonProps) {
       type="submit"
     >
       {text}
-      <ArrowRight color="#00ffff" size={22} className="mt-[2px]" />
+      <ArrowRight color="green" size={22} className="mt-[2px]" />
     </button>
   )
 }

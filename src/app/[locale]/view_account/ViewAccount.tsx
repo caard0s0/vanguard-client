@@ -32,8 +32,8 @@ export function ViewAccount({
 
   return (
     <div className="flex h-screen max-w-md flex-col overflow-scroll bg-dark-blue">
-      <div className="mx-12">
-        <header className="mt-10 flex items-center justify-between">
+      <div>
+        <header className="mx-10 mt-10 flex items-center justify-between">
           {toggleHideBalance ? (
             <Eye
               size={32}
@@ -55,13 +55,13 @@ export function ViewAccount({
           </a>
         </header>
 
-        <div className="mb-8 mt-16 rounded-3xl bg-white p-5">
-          <div className="mt-2 flex items-center">
+        <div className="mt-16 bg-white p-10">
+          <div className="flex items-center">
             <DotOutline size={38} weight="fill" />
             <strong className="text-xl text-black">{id}</strong>
           </div>
 
-          <div className="ml-4 mt-20">
+          <div className="mt-20">
             <h2 className="text-xl font-bold text-gray-950">
               {viewAccountContent('balance')}
             </h2>
@@ -87,14 +87,9 @@ export function ViewAccount({
             <ArrowLeftRight color="green" className="mt-[2px]" />
             {viewAccountContent('send_money')}
           </a>
+          <TransferHistory owner={owner} currency={currency} />
+          <div className="mt-14"></div>
         </div>
-        <div>
-          <h2 className="mb-1 text-xl font-bold text-white">
-            {viewAccountContent('history')}
-          </h2>
-          <TransferHistory owner={owner} currency={currency} />,
-        </div>
-        <div className="mt-14"></div>
       </div>
     </div>
   )
