@@ -13,7 +13,13 @@
 
 &nbsp;
 
-![db_diagram](https://github.com/caard0s0/united-atomic-bank/assets/95318788/1032912b-ea59-4588-b1e8-5c79c2409d4a)
+<div align="center">
+  <video preload controls loop type="video/mp4" height="350" src="https://github.com/caard0s0/united-atomic-bank-client/assets/95318788/b722deda-b5f6-499a-9966-280e088c31b6">
+    Sorry, your browser does not support embedded videos.
+  </video>
+</div>
+
+&nbsp;
 
 A Financial Software specialized in the intermediation of money between savers and those in need of loans, as well as in the custody of that money. It was created following SOLID principles, for better scalability and code maintenance. In addition, i used a framework for React, called Next.js, together with TailwindCSS, which is a framework for CSS.
 
