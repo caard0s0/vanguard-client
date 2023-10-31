@@ -39,6 +39,7 @@
     "link_to_create_user": "I'm not a client"
   },
   "view_account": {
+    "welcome": "Hi,",
     "balance": "Balance",
     "send_money": "Send Money",
     "history": "History",

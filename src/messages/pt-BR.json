@@ -39,6 +39,7 @@
     "link_to_create_user": "Não sou cliente"
   },
   "view_account": {
+    "welcome": "Olá,",
     "balance": "Saldo",
     "send_money": "Enviar Dinheiro",
     "history": "Histórico",
