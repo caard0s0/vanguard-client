@@ -21,7 +21,7 @@
 
 &nbsp;
 
-A Financial Software specialized in the intermediation of money between savers and those in need of loans, as well as in the custody of that money. It was created following SOLID principles, for better scalability and code maintenance. In addition, i used a framework for React, called Next.js, together with TailwindCSS, which is a framework for CSS.
+A Financial Software specialized in the intermediation of money between savers and those in need of loans, as well as in the custody of that money. It was created following SOLID principles and Clean Code guidelines, for better scalability and code maintenance. Using TypeScript for robust static typing, React as a front-end framework and Next.js for server-side rendering and efficient routing. Styling is driven by TailwindCSS, taking a "utility-first" approach for efficient styling.
 
 &nbsp;
 
