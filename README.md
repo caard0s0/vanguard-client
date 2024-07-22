@@ -2,13 +2,13 @@
 
 <!-- About the Project -->
 <div align="center">
-    <h2>UAB - Web Version</h2>
+    <h2>Vanguard - Web Version</h2>
     <p>A complete Financial Software for Financial Institutions, developed with <a href="https://react.dev/">React</a> and <a href="https://nextjs.org/">Next.js</a>.</p>
-    <a href="https://github.com/caard0s0/united-atomic-bank-client/issues">Report Bugs</a>
+    <a href="https://github.com/caard0s0/vanguard-client/issues">Report Bugs</a>
     &nbsp;&bull;&nbsp;
-    <a href="https://github.com/caard0s0/united-atomic-bank-client/actions">Actions</a>
+    <a href="https://github.com/caard0s0/vanguard-client/actions">Actions</a>
     &nbsp;&bull;&nbsp;
-    <a href="https://github.com/caard0s0/united-atomic-bank-client/pulls">Pull Requests</a>
+    <a href="https://github.com/caard0s0/vanguard-client/pulls">Pull Requests</a>
 </div>
 
 &nbsp;
@@ -60,7 +60,7 @@ A Financial Software specialized in the intermediation of money between savers a
 1. Clone the repository.
 
     ```bash
-    git clone https://github.com/caard0s0/united-atomic-bank-client.git
+    git clone https://github.com/caard0s0/vanguard-client.git
     ```
 
 2. Install all project dependencies in the <strong>root</strong> directory.
@@ -79,7 +79,7 @@ A Financial Software specialized in the intermediation of money between savers a
 
 <strong>WARNING:</strong> To install and use the <strong>Full Application</strong>, click on the <strong>Link</strong> below.
 
-4. Install the <strong>Server Side</strong>. for more information visit <a href="https://github.com/caard0s0/united-atomic-bank-server">UAB - API Server</a>.
+4. Install the <strong>Server Side</strong>. for more information visit <a href="https://github.com/caard0s0/vanguard-server">Vanguard - API Server</a>.
 
 <!-- Usage -->
 <h2 id="usage">Usage</h2>
