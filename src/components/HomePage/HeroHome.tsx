@@ -23,7 +23,7 @@ export function HeroHome() {
         <div className="absolute bg-white/50 xs:h-7 xs:w-32 sm:w-48 md:h-11 lg:left-20 lg:top-64 lg:h-96 lg:w-[25rem]"></div>
 
         <div className="flex flex-col items-center bg-white/90 xs:mt-10 lg:absolute lg:left-40 lg:top-20 lg:mt-0 lg:py-40">
-          <h1 className="text-4xl font-semibold text-blue-950">UAB</h1>
+          <h1 className="text-4xl font-semibold text-blue-950">Vanguard</h1>
           <span className="mt-4 text-gray-600">{homeContent('span_1')}</span>
           <span className="mx-16 mt-1 text-center text-3xl text-zinc-950">
             {homeContent('span_2')}

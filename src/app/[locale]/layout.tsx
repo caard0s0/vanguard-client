@@ -10,8 +10,8 @@ const timeZone = 'America/Sao_Paulo'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | UAB',
-    default: 'Home | UAB',
+    template: '%s | Vanguard',
+    default: 'Home | Vanguard',
   },
   description: `
     United Atomic Bank provides accessible, 

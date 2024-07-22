@@ -16,7 +16,7 @@ export function NavBar() {
           src="/united_atomic_bank_logo_black.svg"
           width={75}
           height={75}
-          alt="UAB Logo"
+          alt="Vanguard Logo"
         />
       </a>
 

@@ -45,7 +45,7 @@ export function ViewAccount({
                 onClick={() => setToggleHideBalance(true)}
               />
             )}
-            <h1 className="text-4xl font-semibold text-white">UAB</h1>
+            <h1 className="text-4xl font-semibold text-white">Vanguard</h1>
             <a onClick={async () => await deleteUserCookie()} href="/signin">
               <LogOut className="cursor-pointer" size={32} color="white" />
             </a>
