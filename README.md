@@ -14,7 +14,7 @@
 &nbsp;
 
 <div align="center">
-  <video preload controls loop type="video/mp4" height="350" src="https://github.com/caard0s0/united-atomic-bank-client/assets/95318788/b722deda-b5f6-499a-9966-280e088c31b6">
+  <video preload controls loop type="video/mp4" height="350" src="https://github.com/user-attachments/assets/24609bb9-79af-48dc-952b-ad8585cefefc">
     Sorry, your browser does not support embedded videos.
   </video>
 </div>
